@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Добавляем исполняемый файл из одного исходника
-add_executable(myapp core/main.cpp)
+add_executable(myapp core/core.cpp core/main.cpp)
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/sample.png 
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
