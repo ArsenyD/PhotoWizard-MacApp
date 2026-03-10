@@ -4,7 +4,13 @@ int main()
 {
     Image img;
     img.load("sample.png");
-    negativeFilter(img);
-    img.save("negative_sample.png");
+    if(contrastFilter(img, 0.0))
+    {
+        img.save("contrast_sample.png");
+    }
+    else
+    {
+        std::cerr << "Error while applying filter\n";
+    }
     return 0;
 }
