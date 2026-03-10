@@ -175,3 +175,28 @@ bool contrastFilter(Image& img, double ratio)
     }
     return true;
 }
+
+/// @brief apply exposure filter on image
+/// @param img loaded img class
+/// @param ratio ration of exposure goes from -5.0 to 5.0 (where 0.0 is default pic)
+/// @return returns true if the filter was successfully applied and false if an error occurred.
+bool exposureFilter(Image& img, double ratio)
+{
+    if(img.getData().empty())
+    {
+        return false;
+    }
+
+    if(ratio > 5.0 || ratio < -5.0)
+    {
+        return false;
+    }
+
+    for(size_t index = 0; index < static_cast<size_t>(img.getHeight() * img.getWidth()); index++)
+    {
+        img.getData()[index].red = clamp(img.getData()[index].red * std::pow(2, ratio));
+        img.getData()[index].green = clamp(img.getData()[index].green * std::pow(2, ratio));
+        img.getData()[index].blue = clamp(img.getData()[index].blue * std::pow(2, ratio));
+    }
+    return true;
+}

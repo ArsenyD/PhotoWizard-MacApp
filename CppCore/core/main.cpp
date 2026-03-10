@@ -4,13 +4,10 @@ int main()
 {
     Image img;
     img.load("sample.png");
-    if(contrastFilter(img, 0.0))
-    {
-        img.save("contrast_sample.png");
-    }
-    else
-    {
-        std::cerr << "Error while applying filter\n";
-    }
+    brightnessFilter(img, 0.3);
+    contrastFilter(img, 1.2);
+    exposureFilter(img, -0.5);
+
+    img.save("combined_filter_sample.png");
     return 0;
 }
