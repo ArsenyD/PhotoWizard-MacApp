@@ -153,7 +153,7 @@ bool brightnessFilter(Image& img, double ratio)
 
 /// @brief apply contrast filter on image
 /// @param img loaded image class
-/// @param ratio ration of contrast between -5.0 and 5.0 (equal to 0.0 goes neutral (128, 128, 128) color, less than 0.0 goes negative)
+/// @param ratio ration of contrast between 0.0 and 3.0 (equal to 0.0 goes neutral (128, 128, 128) color, less than 0.0 goes negative)
 /// @return returns true if the filter was successfully applied and false if an error occurred.
 bool contrastFilter(Image& img, double ratio)
 {
@@ -162,7 +162,7 @@ bool contrastFilter(Image& img, double ratio)
         return false;
     }
 
-    if(ratio > 5.0 || ratio < -5.0)
+    if(ratio > 3.0 || ratio < 0.0)
     {
         return false;
     }
@@ -178,7 +178,7 @@ bool contrastFilter(Image& img, double ratio)
 
 /// @brief apply exposure filter on image
 /// @param img loaded img class
-/// @param ratio ration of exposure goes from -5.0 to 5.0 (where 0.0 is default pic)
+/// @param ratio ration of exposure goes from -2.0 to 2.0 (where 0.0 is default pic)
 /// @return returns true if the filter was successfully applied and false if an error occurred.
 bool exposureFilter(Image& img, double ratio)
 {
@@ -187,16 +187,18 @@ bool exposureFilter(Image& img, double ratio)
         return false;
     }
 
-    if(ratio > 5.0 || ratio < -5.0)
+    if(ratio > 2.0 || ratio < -2.0)
     {
         return false;
     }
 
+    double factor = std::pow(2, ratio);
+
     for(size_t index = 0; index < static_cast<size_t>(img.getHeight() * img.getWidth()); index++)
     {
-        img.getData()[index].red = clamp(img.getData()[index].red * std::pow(2, ratio));
-        img.getData()[index].green = clamp(img.getData()[index].green * std::pow(2, ratio));
-        img.getData()[index].blue = clamp(img.getData()[index].blue * std::pow(2, ratio));
+        img.getData()[index].red = clamp(img.getData()[index].red * factor);
+        img.getData()[index].red = clamp(img.getData()[index].red * factor);
+        img.getData()[index].green = clamp(img.getData()[index].green * factor);
     }
     return true;
 }
