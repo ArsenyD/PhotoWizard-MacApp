@@ -24,3 +24,12 @@ xcuserdata
 
 # dotenv environment variables file
 .env
+
+# comlie files 
+compile_commands.json
+
+# sample pics for testing 
+sample.png
+
+# build files
+CppCore/build
