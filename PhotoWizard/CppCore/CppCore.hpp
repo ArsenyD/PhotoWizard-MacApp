@@ -21,7 +21,7 @@
 uint8_t clamp(double value);
 
 bool negativeFilter(std::vector<uint8_t>& pixel_array);
-bool brightnessFilter(std::vector<uint8_t>& pixel_array, double ratio, std::function<void()> callBack);
+void brightnessFilter(std::vector<uint8_t>& pixel_array, double ratio, std::function<void(std::vector<uint8_t>&)> callBack);
 bool contrastFilter(std::vector<uint8_t>& pixel_array, double ratio);
 bool exposureFilter(std::vector<uint8_t>& pixel_array, double ratio);
 

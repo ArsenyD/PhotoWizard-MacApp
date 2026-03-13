@@ -46,17 +46,17 @@ bool negativeFilter(std::vector<uint8_t>& pixel_array)
 /// @brief apply brightness filter on image
 /// @param pixel_array array of r,g,b from swift image
 /// @param ratio ratio of brightness between -1.0 and 1.0
-/// @return returns true if the filter was successfully applied and false if an error occurred.
-bool brightnessFilter(std::vector<uint8_t>& pixel_array, double ratio, std::function<void()> callBack)
+/// @param callBack a function that returns an array to swift at shutdown
+void brightnessFilter(std::vector<uint8_t>& pixel_array, double ratio, std::function<void(std::vector<uint8_t>&)> callBack)
 {
     if(pixel_array.empty())
     {
-        return false;
+        return;
     }
 
     if(ratio > 1.0 || ratio < -1.0)
     {
-        return false;
+        return;
     }
 
     double factor = 255 * ratio;
@@ -65,8 +65,8 @@ bool brightnessFilter(std::vector<uint8_t>& pixel_array, double ratio, std::func
     {
         pixel_array[index] = clamp(pixel_array[index] + factor);
     }
-    callBack();
-    return true;
+    callBack(pixel_array);
+
 }
 
 /// @brief apply contrast filter on image
