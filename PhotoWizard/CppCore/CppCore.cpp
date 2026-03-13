@@ -10,7 +10,7 @@
 /// @brief clamp value between possible values of type
 /// @param value value to clamp
 /// @return clamped uint8_t value (if more than 255, returns 255, if below 0, returns 0)
-uint8_t clamp(double value)
+inline uint8_t clamp(double value)
 {
     if(value > 255)
     {
@@ -47,7 +47,7 @@ bool negativeFilter(std::vector<uint8_t>& pixel_array)
 /// @param pixel_array array of r,g,b from swift image
 /// @param ratio ratio of brightness between -1.0 and 1.0
 /// @return returns true if the filter was successfully applied and false if an error occurred.
-bool brightnessFilter(std::vector<uint8_t>& pixel_array, double ratio)
+bool brightnessFilter(std::vector<uint8_t>& pixel_array, double ratio, std::function<void()> callBack)
 {
     if(pixel_array.empty())
     {
@@ -65,6 +65,7 @@ bool brightnessFilter(std::vector<uint8_t>& pixel_array, double ratio)
     {
         pixel_array[index] = clamp(pixel_array[index] + factor);
     }
+    callBack();
     return true;
 }
 
