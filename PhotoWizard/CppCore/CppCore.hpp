@@ -17,11 +17,15 @@
 #include <string>
 #include <cmath>
 #include <functional>
+#include <thread>
 
 uint8_t clamp(double value);
 
+using ProcessCallback = std::function<void(std::vector<uint8_t>&& data)>;
+
+
 bool negativeFilter(std::vector<uint8_t>& pixel_array);
-void brightnessFilter(std::vector<uint8_t>& pixel_array, double ratio, std::function<void(std::vector<uint8_t>&)> callBack);
+void brightnessFilter(uint8_t* data, int size, double ratio);
 bool contrastFilter(std::vector<uint8_t>& pixel_array, double ratio);
 bool exposureFilter(std::vector<uint8_t>& pixel_array, double ratio);
 

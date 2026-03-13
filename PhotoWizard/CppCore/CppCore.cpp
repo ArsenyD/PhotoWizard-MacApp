@@ -7,6 +7,7 @@
 
 #include "CppCore.hpp"
 
+
 /// @brief clamp value between possible values of type
 /// @param value value to clamp
 /// @return clamped uint8_t value (if more than 255, returns 255, if below 0, returns 0)
@@ -44,12 +45,12 @@ bool negativeFilter(std::vector<uint8_t>& pixel_array)
 }
 
 /// @brief apply brightness filter on image
-/// @param pixel_array array of r,g,b from swift image
+/// @param data pointer to array of r,g,b from swift image
+/// @param size size of array from swift image
 /// @param ratio ratio of brightness between -1.0 and 1.0
-/// @param callBack a function that returns an array to swift at shutdown
-void brightnessFilter(std::vector<uint8_t>& pixel_array, double ratio, std::function<void(std::vector<uint8_t>&)> callBack)
+void brightnessFilter(uint8_t* data, int size, double ratio)
 {
-    if(pixel_array.empty())
+    if(data == nullptr)
     {
         return;
     }
@@ -61,12 +62,10 @@ void brightnessFilter(std::vector<uint8_t>& pixel_array, double ratio, std::func
 
     double factor = 255 * ratio;
 
-    for(size_t index = 0; index < pixel_array.size() - 1; index++)
+    for(size_t index = 0; index < size; index++)
     {
-        pixel_array[index] = clamp(pixel_array[index] + factor);
+        data[index] = clamp(data[index] + factor);
     }
-    callBack(pixel_array);
-
 }
 
 /// @brief apply contrast filter on image

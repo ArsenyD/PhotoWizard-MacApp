@@ -2,4 +2,5 @@
 module CppCore {
     header "CppCore.hpp"
     requires cplusplus
+    export *
 }
