@@ -7,18 +7,48 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		27A37E432F64867400FE5F56 /* libCppCore.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libCppCore.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F9D584D2F53549C00A0E85C /* PhotoWizard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoWizard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		27A37E552F64867B00FE5F56 /* Exceptions for "PhotoWizard" folder in "PhotoWizard" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CppCore/CppCore.cpp,
+			);
+			target = 7F9D584C2F53549C00A0E85C /* PhotoWizard */;
+		};
+		27A37E562F64867B00FE5F56 /* Exceptions for "PhotoWizard" folder in "CppCore" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CppCore/CppCore.cpp,
+				CppCore/CppCore.hpp,
+			);
+			target = 27A37E422F64867400FE5F56 /* CppCore */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7F9D584F2F53549C00A0E85C /* PhotoWizard */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				27A37E552F64867B00FE5F56 /* Exceptions for "PhotoWizard" folder in "PhotoWizard" target */,
+				27A37E562F64867B00FE5F56 /* Exceptions for "PhotoWizard" folder in "CppCore" target */,
+			);
 			path = PhotoWizard;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		27A37E412F64867400FE5F56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7F9D584A2F53549C00A0E85C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,13 +71,43 @@
 			isa = PBXGroup;
 			children = (
 				7F9D584D2F53549C00A0E85C /* PhotoWizard.app */,
+				27A37E432F64867400FE5F56 /* libCppCore.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		27A37E3F2F64867400FE5F56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		27A37E422F64867400FE5F56 /* CppCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27A37E4B2F64867400FE5F56 /* Build configuration list for PBXNativeTarget "CppCore" */;
+			buildPhases = (
+				27A37E3F2F64867400FE5F56 /* Headers */,
+				27A37E402F64867400FE5F56 /* Sources */,
+				27A37E412F64867400FE5F56 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CppCore;
+			packageProductDependencies = (
+			);
+			productName = CppCore;
+			productReference = 27A37E432F64867400FE5F56 /* libCppCore.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 		7F9D584C2F53549C00A0E85C /* PhotoWizard */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F9D585B2F53549D00A0E85C /* Build configuration list for PBXNativeTarget "PhotoWizard" */;
@@ -80,6 +140,9 @@
 				LastSwiftUpdateCheck = 2630;
 				LastUpgradeCheck = 2630;
 				TargetAttributes = {
+					27A37E422F64867400FE5F56 = {
+						CreatedOnToolsVersion = 26.3;
+					};
 					7F9D584C2F53549C00A0E85C = {
 						CreatedOnToolsVersion = 26.3;
 					};
@@ -100,6 +163,7 @@
 			projectRoot = "";
 			targets = (
 				7F9D584C2F53549C00A0E85C /* PhotoWizard */,
+				27A37E422F64867400FE5F56 /* CppCore */,
 			);
 		};
 /* End PBXProject section */
@@ -115,6 +179,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		27A37E402F64867400FE5F56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7F9D58492F53549C00A0E85C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -125,6 +196,36 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		27A37E4C2F64867400FE5F56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		27A37E4D2F64867400FE5F56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		7F9D58592F53549D00A0E85C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -253,7 +354,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W88579NAWQ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -265,6 +366,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-cxx-interoperability-mode=default";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ArsenyD.PhotoWizard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -272,6 +374,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INCLUDE_PATHS = "./PhotoWizard/CppCore/**";
 				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -286,7 +389,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W88579NAWQ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -298,6 +401,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-cxx-interoperability-mode=default";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ArsenyD.PhotoWizard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -305,6 +409,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INCLUDE_PATHS = "./PhotoWizard/CppCore/**";
 				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -314,6 +419,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		27A37E4B2F64867400FE5F56 /* Build configuration list for PBXNativeTarget "CppCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27A37E4C2F64867400FE5F56 /* Debug */,
+				27A37E4D2F64867400FE5F56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7F9D58482F53549C00A0E85C /* Build configuration list for PBXProject "PhotoWizard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

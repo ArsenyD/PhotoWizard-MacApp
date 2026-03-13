@@ -1,0 +1,5 @@
+// In module.modulemap
+module CppCore {
+    header "CppCore.hpp"
+    requires cplusplus
+}

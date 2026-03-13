@@ -1,7 +1,14 @@
-#include "core.hpp"
+//
+//  CppCore.cpp
+//  CppCore
+//
+//  Created by Даниил Буценин on 13.03.2026.
+//
+
+#include "CppCore.hpp"
 
 /// @brief clamp value between possible values of type
-/// @param value 
+/// @param value value to clamp
 /// @return clamped uint8_t value (if more than 255, returns 255, if below 0, returns 0)
 uint8_t clamp(double value)
 {
@@ -108,3 +115,4 @@ bool exposureFilter(std::vector<uint8_t>& pixel_array, double ratio)
     }
     return true;
 }
+
